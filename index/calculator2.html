@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+        <style>
+            .cal {
+                height: 676px;
+                width: 100%;
+                background: url(bg3.jpg) ;
+            }
+        
+            .p1 button {
+        
+                width: 95px;
+                height: 75px;
+                border-radius: 55px;
+                margin-bottom: 5px;
+            }
+        
+            .p1 {
+                border: 5px solid   rgba(255, 255, 255, 0.719);
+                /* background: url(5.jpg) no-repeat center center/cover; */
+                border-radius: 10px;
+                width: 300px;
+                height: 540px;
+                padding-left: 10px;
+                padding-top: 10px;
+                margin-left: 580px;
+                /* background: rgba(250,205,305,0.4); */
+            backdrop-filter: blur(2000px);
+            box-shadow: 5px 10px 5px 5px  rgb(185, 209, 217);
+                margin-top: -200px;
+            }
+        
+            .r1 input {
+                border-radius: 5px;
+                height: 48px;
+                width: 41.5vh;
+                margin-bottom: 8px;
+                opacity: 0.54;
+            }
+        
+            .cl {
+                text-align: center;
+                /* background-color: beige; */
+                padding-top: 10px;
+                height: 50px;
+            }
+        
+            .text1 {
+                font-size: 35px;
+            }
+        
+            .text1 :hover {
+                color: red;
+            }
+            .bubble{
+                border: solid white;
+                height: 200px;
+                width: 200px;
+                border-radius: 100px;
+                margin-top: -80px;
+                margin-left: -20px;
+                box-shadow: 0px 0px 60px white inset;
+            }
+            .bubble2{
+                border: solid white;
+                height: 80px;
+                width: 80px;
+                border-radius: 100px;
+                margin-left: 100px;
+                box-shadow: 0px 0px 20px white inset;
+            }
+            .sq1{
+                border: solid white;
+                height: 200px;
+                width: 200px;
+                border-radius: 100px;
+                margin-left: 1260px;
+                margin-top: -160px;
+                box-shadow: 0px 0px 60px white ;
+            }
+            .sq2{
+               
+                border: solid white;
+                height: 80px;
+                width: 80px;
+                border-radius: 100px;
+                margin-left: 1230px;
+                margin-top: -280px;
+                box-shadow: 0px 0px 20px white ;
+            }
+            #screen{
+                font-size: 40px;
+                font-weight: 80px;
+            }
+        </style>
+</head>
+<body>
+    <nav class="cal">
+            <div class="cl">
+                <h2><strong></strong></h2>
+            </div>
+            <div class="bubble">
+            </div>
+            <div class="bubble2"></div>
+            <div class="p1">
+                <div class="r1">
+                    <input type="text" name="screen" id="screen">
+                </div>
+        
+                <div class="r1">
+                    <button class="text1"><strong>%</strong></button>
+                    <button class="text1"><strong>C</strong></button>
+                    <button class="text1"><strong>/</strong></button>
+                </div>
+                <div class="r2">
+                    <button class="text1"><strong>7</strong></button>
+                    <button class="text1"><strong>8</strong></button>
+                    <button class="text1"><strong>9</strong></button>
+                </div>
+                <div class="r3">
+                    <button class="text1"><strong>4</strong></button>
+                    <button class="text1"><strong>5</strong></button>
+                    <button class="text1"><strong>6</strong></button>
+                </div>
+                <div class="r4">
+                    <button class="text1"><strong>1</strong></button>
+                    <button class="text1"><strong>2</strong></button>
+                    <button class="text1"><strong>3</strong></button>
+                </div>
+                <div class="r5">
+                    <button class="text1"><strong>0</strong></button>
+                    <button class="text1"><strong>.</strong></button>
+                    <button class="text1"><strong>=</strong></button>
+                </div>
+                <div class="r4">
+                    <button class="text1"><strong>*</strong></button>
+                    <button class="text1"><strong>-</strong></button>
+                    <button class="text1"><strong>+</strong></button>
+                </div>
+            </div>
+            <div class="sq1"></div>
+            <div class="sq2"></div>
+            <div class="bubble3"></div>
+     </nav>
+<script>
+    let screen = document.getElementById('screen');
+    buttons = document.querySelectorAll('button');
+    let screenValue = '';
+    for (item of buttons) {
+        item.addEventListener('click', (e) => {
+            buttonText = e.target.innerText;
+            console.log('Button text is ', buttonText);
+            if (buttonText == 'X') {
+                buttonText = '*';
+                screenValue += buttonText;
+                screen.value = screenValue;
+            }
+            else if (buttonText == 'C') {
+                screenValue = "";
+                screen.value = screenValue;
+            }
+            else if (buttonText == '=') {
+                screen.value = eval(screenValue);
+            }
+            else {
+                screenValue += buttonText;
+                screen.value = screenValue;
+            }
+
+        })
+    }
+
+
+</script>
+
+
+
+
+
+
+
+
+     <!-- <script>
+        let string = "";
+            let buttons = document.querySelectorAll('.button');
+            Array.from(buttons).forEach((button) => {
+                button.addEventListener('click', (e) => {
+                    if (e.target.innerHTML == '=') {
+                        string = eval(string);
+                        document.querySelector('input').value = string;
+                    }
+                    else if (e.target.innerHTML == 'C') {
+                        string = "";
+                        document.querySelector('input').value = string;
+                    }
+                    else {
+                        console.log(e.target)
+                        string = string + e.target.innerHTML;
+                        document.querySelector('input').value = string;
+                    }
+                })
+            })
+     </script> -->
+    
+</body>
+</html>
